@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -7,9 +8,7 @@ app.use(cors());
 app.use(express.json());
 // Kết nối MongoDB với username là MSSV, password là MSSV, dbname là it4409
 mongoose
-  .connect(
-    "mongodb+srv://20225246:20225246@cluster0.ahls2kf.mongodb.net/it4409?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB Error:", err));
 
@@ -36,8 +35,9 @@ const UserSchema = new mongoose.Schema(
 const User = mongoose.model("User", UserSchema);
 
 // Start server
-app.listen(3001, () => {
-  console.log("Server running on http://localhost:3001");
+const PORT = process.env.PORT || 3001; 
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
 
 // 1.3. Implement GET với Pagination + Search
