@@ -240,7 +240,7 @@ table button:last-child:hover {
         // Fetch users
         const fetchUsers = () => {
         const url = 
-        `http://localhost:3001/api/users?page=${page}&limit=${limit}&search=${search}`;
+        `https://it4409-20251-vp6r.onrender.com/api/users?page=${page}&limit=${limit}&search=${search}`;
  
         fetch(url)
         .then(res => res.json())
@@ -421,8 +421,8 @@ table button:last-child:hover {
             const handleSubmit = () => {
             if (!validate()) return;
             const url = user
-            ? `http://localhost:3001/api/users/${user._id}`
-            : `http://localhost:3001/api/users`;
+            ? `https://it4409-20251-vp6r.onrender.com/api/users/${user._id}`
+            : `https://it4409-20251-vp6r.onrender.com/api/users`;
             
             const method = user ? "PUT" : "POST";
             fetch(url, {
@@ -484,7 +484,7 @@ table button:last-child:hover {
         }
 
         const deleteUser = (id) => {
-        fetch(`http://localhost:3001/api/users/${id}`, {
+        fetch(`https://it4409-20251-vp6r.onrender.com/api/users/${id}`, {
         method: "DELETE"
         })
         .then(res => res.json())
@@ -497,6 +497,7 @@ table button:last-child:hover {
 
         const root = ReactDOM.createRoot(document.getElementById("root"));
         root.render(<App />);
+    
 
  </script>
 </body>
