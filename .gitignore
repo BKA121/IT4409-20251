@@ -1,0 +1,6 @@
+# Bỏ qua thư viện node (nặng và có thể cài lại bằng npm install)
+backend/node_modules/
+
+# Bỏ qua các file tạm của hệ điều hành
+.DS_Store
+Thumbs.db
